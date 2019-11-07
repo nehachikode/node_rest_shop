@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 var app = express();
 
@@ -14,6 +15,8 @@ app.use(express.static(path.resolve('./public')));
 // Tell the bodyparser middleware to accept more data
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+app.use(morgan('dev'));
 
 var port = Number(process.env.PORT || 3000);
 
