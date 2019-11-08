@@ -12,9 +12,7 @@ const mongoose = require('mongoose');
 
 let con = mongoose.connect(
     'mongodb+srv://user:userpassword@node-rest-shop-qalba.mongodb.net/test?retryWrites=true&w=majority',
-    {
-        useMongoClient: true
-    }
+    { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
 module.exports = con;

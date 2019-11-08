@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 
 var app = express();
 
@@ -16,7 +16,7 @@ app.use(express.static(path.resolve('./public')));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 
 var port = Number(process.env.PORT || 3000);
 
@@ -31,6 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 require('./config/routes')(app);
+require('./config/dbConfig');
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
